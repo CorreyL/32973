@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import WebViewer from '@pdftron/webviewer';
 import './App.css';
 
 const App = () => {
   const viewer = useRef(null);
+  const [wvInstance, setWvInstance] = useState(null);
 
   // if using a class, equivalent of componentDidMount 
   useEffect(() => {
@@ -15,8 +16,7 @@ const App = () => {
       },
       viewer.current,
     ).then((instance) => {
-      const { documentViewer, annotationManager, Annotations, PDFNet } = instance.Core;
-
+      setWvInstance(instance);
     });
   }, []);
 
