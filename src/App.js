@@ -10,11 +10,12 @@ const App = () => {
     WebViewer(
       {
         path: '/webviewer/lib',
+        fullAPI: true,
         initialDoc: '/files/PDFTRON_about.pdf',
       },
       viewer.current,
     ).then((instance) => {
-      const { documentViewer, annotationManager, Annotations } = instance.Core;
+      const { documentViewer, annotationManager, Annotations, PDFNet } = instance.Core;
 
     });
   }, []);
